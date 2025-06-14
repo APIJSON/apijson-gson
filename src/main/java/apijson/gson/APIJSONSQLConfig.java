@@ -69,9 +69,10 @@ public class APIJSONSQLConfig<T> extends apijson.framework.APIJSONSQLConfig<T, M
 	//		, Map<String, Object>, List<Object>>> joinList, boolean isProcedure) throws Exception {
 	//	return newSQLConfig(method, table, alias, request, joinList, isProcedure, new SimpleCallback<T>() {});
 	//}
-	public static <T> SQLConfig<T, Map<String, Object>, List<Object>> newSQLConfig(
+	public static <T> SQLConfig<T, Map<String, Object>, List<Object>> newSQLConfig2(
 			RequestMethod method, String table, String alias
-			, LinkedHashMap<String, Object> request, List<Join<T, Map<String, Object>, List<Object>>> joinList, boolean isProcedure) throws Exception {
+			, Map<String, Object> request, List<Join<T, Map<String, Object>, List<Object>>> joinList, boolean isProcedure
+	) throws Exception {
 		return newSQLConfig(method, table, alias, request, joinList, isProcedure, new SimpleCallback<T>() {});
 	}
 

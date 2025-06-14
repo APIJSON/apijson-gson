@@ -15,8 +15,10 @@ limitations under the License.*/
 package apijson.gson;
 
 import apijson.NotNull;
-import apijson.framework.APIJSONCreator;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
@@ -35,14 +37,19 @@ public class APIJSONApplication extends apijson.framework.APIJSONApplication {
     public static TypeToken<?> JSON_ARRAY_TOKEN;
     public static Class<?> JSON_ARRAY_CLASS;
     static {
-        JSON_OBJECT_TOKEN = new TypeToken<Map<String, Object>>(){};
+        APIJSONParser.IS_RETURN_STACK_TRACE = false;
+
+        GSON = new Gson();
+
+        JSON_OBJECT_TOKEN = new TypeToken<LinkedHashMap<String, Object>>(){};
         JSON_OBJECT_CLASS = JSON_OBJECT_TOKEN.getRawType();
 
-        JSON_ARRAY_TOKEN = new TypeToken<List<Object>>(){};
+        JSON_ARRAY_TOKEN = new TypeToken<ArrayList<Object>>(){};
         JSON_ARRAY_CLASS = JSON_ARRAY_TOKEN.getRawType();
 
-        GSON = apijson.gson.APIJSONApplication.GSON;
         // apijson.JSON.DEFAULT_JSON_PARSER = JSON.DEFAULT_JSON_PARSER; // 解决 DEFAULT_JSON_PARSER 初始化前就自测导致抛异常
+
+        DEFAULT_APIJSON_CREATOR = new APIJSONCreator<>();
 
         JSON.DEFAULT_JSON_PARSER = new JSONParser() {
             @Override
@@ -94,7 +101,22 @@ public class APIJSONApplication extends apijson.framework.APIJSONApplication {
 
             @Override
             public <T> List<T> parseArray(Object json, Class<T> clazz) {
-                return GSON.fromJson(toJSONString(json), new TypeToken<List<T>>(){}.getType());
+                List<Object> list = parseArray(json);
+                if (list == null) {
+                    return null;
+                }
+
+                List<T> list2 = new ArrayList<>();
+                for (int i = 0; i < list.size(); i++) {
+                    Object obj = list.get(i);
+                    if (obj != null && clazz != null && ! clazz.isAssignableFrom(obj.getClass())) {
+                        String str = toJSONString(obj);
+                        obj = clazz.isAssignableFrom(String.class) ? str : GSON.fromJson(str, clazz);
+                    }
+                    list2.add((T) obj);
+                }
+
+                return list2;
             }
         };
     }
@@ -124,8 +146,7 @@ public class APIJSONApplication extends apijson.framework.APIJSONApplication {
      * @return
      * @throws Exception
      */
-    public static <T, M extends Map<String, Object>, L extends List<Object>> void init(
-            @NotNull APIJSONCreator<T, M, L> creator) throws Exception {
+    public static <T> void init(@NotNull APIJSONCreator<T> creator) throws Exception {
         init(true, creator);
     }
     /**初始化，加载所有配置并校验
@@ -134,8 +155,7 @@ public class APIJSONApplication extends apijson.framework.APIJSONApplication {
      * @return
      * @throws Exception
      */
-    public static <T, M extends Map<String, Object>, L extends List<Object>> void init(
-            boolean shutdownWhenServerError, @NotNull APIJSONCreator<T, M, L> creator) throws Exception {
+    public static <T> void init(boolean shutdownWhenServerError, @NotNull APIJSONCreator<T> creator) throws Exception {
         apijson.framework.APIJSONApplication.init(shutdownWhenServerError, creator);
     }
 

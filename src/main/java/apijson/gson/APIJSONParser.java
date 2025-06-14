@@ -99,9 +99,9 @@ public class APIJSONParser<T> extends apijson.framework.APIJSONParser<T, Map<Str
 	public APIJSONObjectParser<T> createObjectParser(Map<String, Object> request, String parentPath
 			, SQLConfig<T, Map<String, Object>, List<Object>> arrayConfig
 			, boolean isSubquery, boolean isTable, boolean isArrayMainTable) throws Exception {
-		return (APIJSONObjectParser<T>) super.createObjectParser(
-				request, parentPath, arrayConfig, isSubquery, isTable, isArrayMainTable
-		);
+		return new APIJSONObjectParser<T>(
+				this.getSession(), request, parentPath, arrayConfig, isSubquery, isTable, isArrayMainTable
+		) {}.setMethod(this.getMethod()).setParser(this);
 	}
 
 	public static Map<String, Object> parseRequest(String request) {
@@ -114,4 +114,11 @@ public class APIJSONParser<T> extends apijson.framework.APIJSONParser<T, Map<Str
 		}
 	}
 
+	// 没用，提前打日志已经序列化了
+	//@Override
+	//public Map<String, Object> parseResponse(Map<String, Object> request) {
+	//	Map<String, Object> response = super.parseResponse(request);
+	//	response.remove("trace:stack");  // FIXME 暂时先这样避免 gson 序列化报错，考虑后续提前转成 JSON Object
+	//	return response;
+	//}
 }
