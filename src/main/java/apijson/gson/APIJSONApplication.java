@@ -37,7 +37,7 @@ public class APIJSONApplication extends apijson.framework.APIJSONApplication {
     public static TypeToken<?> JSON_ARRAY_TOKEN;
     public static Class<?> JSON_ARRAY_CLASS;
     static {
-        APIJSONParser.IS_RETURN_STACK_TRACE = false;
+        //APIJSONParser.IS_RETURN_STACK_TRACE = false;
 
         GSON = new Gson();
 
