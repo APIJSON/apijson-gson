@@ -1,6 +1,6 @@
 # apijson-gson  [![](https://jitpack.io/v/APIJSON/apijson-gson.svg)](https://jitpack.io/#APIJSON/apijson-gson)
-腾讯 [APIJSON](https://github.com/Tencent/APIJSON) 8.0.0+ 的 gson 插件，简化使用。<br />
-A gson plugin for Tencent [APIJSON](https://github.com/Tencent/APIJSON) 8.0.0+.<br />
+腾讯 [APIJSON](https://github.com/Tencent/APIJSON) 8.0.2+ 的 gson 插件，简化使用。<br />
+A gson plugin for Tencent [APIJSON](https://github.com/Tencent/APIJSON) 8.0.2+.<br />
 
 
 ## 添加依赖
