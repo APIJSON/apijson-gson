@@ -1,6 +1,6 @@
 # apijson-gson  [![](https://jitpack.io/v/APIJSON/apijson-gson.svg)](https://jitpack.io/#APIJSON/apijson-gson)
-腾讯 [APIJSON](https://github.com/Tencent/APIJSON) 8.0.2+ 的 gson 插件，简化使用。<br />
-A gson plugin for Tencent [APIJSON](https://github.com/Tencent/APIJSON) 8.0.2+.<br />
+[APIJSON](https://github.com/APIJSON/APIJSON) 8.0.2+ 的 gson 插件，简化使用。<br />
+A gson plugin for [APIJSON](https://github.com/APIJSON/APIJSON) 8.0.2+.<br />
 
 
 ## 添加依赖
@@ -131,15 +131,15 @@ public class DemoSQLExecutor extends APIJSONSQLExecutor<Long> { // apijson.frame
 <br />
 
 
-参考 [APIJSONController](/apijson/gson/APIJSONController.java) 的注释及 [APIJSONBoot](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot) 的 [DemoController](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoController.java) 和 [DemoApplication](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoApplication.java) <br />
+参考 [APIJSONController](/src/apijson/gson/APIJSONController.java) 的注释及 [APIJSONBoot](https://github.com/APIJSON/APIJSON-Demo/blob/main/APIJSON-Java-Server/APIJSONBoot) 的 [DemoController](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoController.java) 和 [DemoApplication](https://github.com/APIJSON/APIJSON-Demo/blob/main/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoApplication.java) <br />
 
-See document in [APIJSONController](/apijson/gson/APIJSONController.java) and [DemoController](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoController.java), [DemoApplication](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoApplication.java)  in [APIJSONBoot](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot)
-
-<br />
+See document in [APIJSONController](/src/apijson/gson/APIJSONController.java) and [DemoController](https://github.com/APIJSON/APIJSON-Demo/blob/main/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoController.java), [DemoApplication](https://github.com/APIJSON/APIJSON-Demo/blob/main/APIJSON-Java-Server/APIJSONBoot/src/main/java/apijson/boot/DemoApplication.java)  in [APIJSONBoot](https://github.com/APIJSON/APIJSON-Demo/blob/master/APIJSON-Java-Server/APIJSONBoot)
 
 <br />
-有问题可以去 Tencent/APIJSON 提 issue <br />
-https://github.com/Tencent/APIJSON/issues/36
+
+<br />
+有问题可以去 APIJSON/APIJSON 提 issue <br />
+https://github.com/APIJSON/APIJSON/issues/36
 
 <br /><br />
 
